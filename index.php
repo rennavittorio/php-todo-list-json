@@ -25,16 +25,16 @@
             </div>
 
             <div class="container py-3">
-                <form action="./server.php" method="POST" class="row mb-3 align-items-center">
+                <div class="row mb-3 align-items-center">
                     <div class="col-auto">
                         <button @click="saveTask()" class="btn btn-warning">
                             Add task
                         </button>
                     </div>
                     <div class="col">
-                        <input v-model="inputValue" type="text" class="form-control" id="taskAdd" name="newTask" placeholder="example: do shopping...">
+                        <input v-model="newTodo" type="text" class="form-control" id="taskAdd" name="todo" placeholder="example: do shopping...">
                     </div>
-                </form>
+                </div>
             </div>
 
             <div class="container">
@@ -45,7 +45,7 @@
                     <ul class="list-group list-group-flush">
                         <li v-for="(task, index) in tasks" :class="['list-group-item', 'd-flex','justify-content-between', 'align-items-center', task.done === 'true' ? 'done' : '']">
                             <div @click="tickTask(task, index)" class="task-text col">
-                                {{ task.text }}
+                                {{ task.todo }}
                             </div>
                             <!-- <div 
                             :class="['delete-btn', 'col-auto', task.done === true ? 'd-block' : 'd-none']">

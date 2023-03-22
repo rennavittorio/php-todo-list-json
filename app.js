@@ -5,7 +5,7 @@ createApp({
         return {
             tasks: [],
 
-            inputValue: '',
+            newTodo: '',
 
             doneTasks: [
                 {
@@ -24,6 +24,27 @@ createApp({
                 console.log(res.data.data);
             })
         },
+        saveTask() {
+			console.log('save task', this.newTodo)
+
+			$myVar = {
+				todo: this.newTodo,
+			}
+
+			axios
+				.post('./server.php', $myVar, {
+					headers: {
+						'Content-Type': 'multipart/form-data',
+					},
+				})
+				.then((res) => {
+					this.tasks = res.data.data;
+					this.newTodo = ''
+				})
+				.catch((err) => {
+					console.log(err)
+				})
+		},
         addTask(){
             console.log('task submitted');
         },
