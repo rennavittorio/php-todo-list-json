@@ -32,7 +32,7 @@
                         </button>
                     </div>
                     <div class="col">
-                        <input v-model="newTodo" type="text" class="form-control" id="taskAdd" name="todo" placeholder="example: do shopping...">
+                        <input @keyup.enter="saveTask()" v-model="newTodo" type="text" class="form-control" id="taskAdd" name="todo" placeholder="example: do shopping...">
                     </div>
                 </div>
             </div>
@@ -43,8 +43,8 @@
                 </h1>
                 <div class="card">
                     <ul class="list-group list-group-flush">
-                        <li v-for="(task, index) in tasks" :class="['list-group-item', 'd-flex','justify-content-between', 'align-items-center', task.done === 'true' ? 'done' : '']">
-                            <div @click="tickTask(task, index)" class="task-text col">
+                        <li v-for="(task, index) in tasks" :class="['list-group-item', 'd-flex','justify-content-between', 'align-items-center', task.done === 'yes' ? 'done' : '']">
+                            <div @click="tickTask(task)" class="task-text col">
                                 {{ task.todo }}
                             </div>
                             <!-- <div 

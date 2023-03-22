@@ -8,7 +8,7 @@ $todos = json_decode($todo_string, true);
 $new_todo = isset($_POST['todo']) ? $_POST['todo'] : null;
 $new_object = [
     "todo" => "$new_todo",
-    "done" => "false",
+    "done" => "no",
 
 ];
 

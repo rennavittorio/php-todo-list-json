@@ -7,12 +7,6 @@ createApp({
 
             newTodo: '',
 
-            doneTasks: [
-                {
-                    taskText: 'example completed task 1',
-                    done: true,
-                },
-            ],
         }
     },
 
@@ -45,20 +39,17 @@ createApp({
 					console.log(err)
 				})
 		},
-        addTask(){
-            console.log('task submitted');
-        },
 
-        tickTask(task, index){
-            if (task.done === false){
-                task.done = true;
-                this.doneTasks.push(task);
-                this.tasks.splice(index, 1);
+        tickTask(task){
+            if (task.done === 'no'){
+                task.done = 'yes';
+                // this.doneTasks.push(task);
+                // this.tasks.splice(index, 1);
 
             } else {
-                task.done = false;
-                this.tasks.push(task);
-                this.doneTasks.splice(index, 1);
+                task.done = 'no';
+                // this.tasks.push(task);
+                // this.doneTasks.splice(index, 1);
             }
         },
 

@@ -1,1 +1,1 @@
-{"data":[{"todo":"task 1","done":"true"},{"todo":"task 2","done":"true"},{"todo":"task 3","done":"false"},{"todo":"task 4","done":"false"},{"todo":"task 5","done":"true"},{"todo":"ciao","done":"false"},{"todo":"mamma","done":"false"},{"todo":"tutto","done":"false"}]}
+{"data":[{"todo":"task 1","done":"yes"},{"todo":"task 2","done":"yes"},{"todo":"task 3","done":"no"},{"todo":"task 4","done":"no"},{"todo":"task 5","done":"yes"},{"todo":"ciao","done":"no"},{"todo":"mamma","done":"no"},{"todo":"tutto","done":"no"}]}
