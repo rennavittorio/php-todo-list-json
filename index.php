@@ -39,18 +39,17 @@
 
             <div class="container">
                 <h1 class="fs-5">
-                    // toBeDone ( {{ countToBeDoneList }} )
+                    // toBeDone
                 </h1>
                 <div class="card">
                     <ul class="list-group list-group-flush">
-                        <li v-for="(task, index) in tasks" :class="['list-group-item', 'd-flex','justify-content-between', 'align-items-center', task.done === 'yes' ? 'done' : '']">
-                            <div @click="tickTask(task)" class="task-text col">
+                        <li v-for="(task, index) in tasks" :key="index" :class="['list-group-item', 'd-flex','justify-content-between', 'align-items-center', task.done === 'yes' ? 'done' : '']">
+                            <div @click="tickTask(task, index)" class="task-text col">
                                 {{ task.todo }}
                             </div>
-                            <!-- <div 
-                            :class="['delete-btn', 'col-auto', task.done === true ? 'd-block' : 'd-none']">
+                            <div :class="['delete-btn', 'col-auto', task.done === 'yes' ? 'd-block' : 'd-none']">
                                 <button @click="removeTask(index)" class="btn btn-danger btn-sm">X</button>
-                            </div> -->
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -59,7 +58,7 @@
 
             <!-- <div class="container py-3">
                 <h1 class="fs-5">
-                    // doneTasks ( {{ countDoneList }} )
+                    // doneTasks
                 </h1>
                 <div class="card">
                     <ul class="list-group list-group-flush">

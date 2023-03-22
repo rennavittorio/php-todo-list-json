@@ -40,33 +40,60 @@ createApp({
 				})
 		},
 
-        tickTask(task){
+        tickTask(task, index){
+            console.log('trig tick');
+            let isDone = 'yes';
             if (task.done === 'no'){
-                task.done = 'yes';
-                // this.doneTasks.push(task);
-                // this.tasks.splice(index, 1);
+                isDone = 'yes';
 
             } else {
-                task.done = 'no';
-                // this.tasks.push(task);
-                // this.doneTasks.splice(index, 1);
+                isDone = 'no';
             }
+
+            $myVar = {
+				toChangeIndex: index,
+                toChangeStatus: isDone,
+
+			}
+
+			axios
+				.post('./server.php', $myVar, {
+					headers: {
+						'Content-Type': 'multipart/form-data',
+					},
+				})
+				.then((res) => {
+					this.tasks = res.data.data;
+				})
+				.catch((err) => {
+					console.log(err)
+				})
+
         },
 
         removeTask(index){
-            this.doneTasks.splice(index, 1);
+            console.log('trig del');
+            console.log(index);
+
+            $myVar = {
+				toDel: index,
+			}
+
+			axios
+				.post('./server.php', $myVar, {
+					headers: {
+						'Content-Type': 'multipart/form-data',
+					},
+				})
+				.then((res) => {
+					this.tasks = res.data.data;
+				})
+				.catch((err) => {
+					console.log(err)
+				})
         }
     },
 
-    computed: {
-        countToBeDoneList(){
-            return this.tasks.length;
-        },
-
-        countDoneList(){
-            return this.doneTasks.length;
-        },
-    },
     mounted(){
         this.fetchTodos();
     },
